@@ -60,5 +60,9 @@ class StemstoreApplicationTests {
         int count = empMapper.delete(queryWrapper);
         System.out.println("count = " + count);
     }
+    @Test
+    public void test(){
+        System.out.println("测试");
+    }
 
 }

@@ -15,7 +15,7 @@ stemgame;
 create table stemgame.user
 (
     user_id   int(10) primary key not null auto_increment,
-    user_name varchar(20) NOT NULL,
+    user_name varchar(20) NOT NULL UNIQUE ,
     user_pwd  varchar(20) NOT NULL
 )engine=InnoDB default charset=UTF8MB4;
 

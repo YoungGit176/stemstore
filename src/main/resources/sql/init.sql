@@ -39,7 +39,7 @@ create table stemgame.coll
 )engine=InnoDB default charset=UTF8MB4;
 
 -- 创建收藏表
-create table stemgame.order
+create table stemgame.odr
 (
     order_num  int(10) primary key not null auto_increment,
     order_date date,
@@ -89,15 +89,15 @@ insert into stemgame.coll(user_id, game_id)
 values (1004, 2003);
 
 -- 插入订单测试数据
-insert into stemgame.order(order_num, order_date, order_stat, user_id, game_id)
+insert into stemgame.odr(order_num, order_date, order_stat, user_id, game_id)
 values (3001, now(), 0, 1001, 2003);
-insert into stemgame.order(order_num, order_date, order_stat, user_id, game_id)
+insert into stemgame.odr(order_num, order_date, order_stat, user_id, game_id)
 values (3002, now(), 1, 1001, 2001);
-insert into stemgame.order(order_num, order_date, order_stat, user_id, game_id)
+insert into stemgame.odr(order_num, order_date, order_stat, user_id, game_id)
 values (3003, now(), 1, 1002, 2002);
-insert into stemgame.order(order_num, order_date, order_stat, user_id, game_id)
+insert into stemgame.odr(order_num, order_date, order_stat, user_id, game_id)
 values (3004, now(), 1, 1003, 2004);
-insert into stemgame.order(order_num, order_date, order_stat, user_id, game_id)
+insert into stemgame.odr(order_num, order_date, order_stat, user_id, game_id)
 values (3005, now(), 1, 1004, 2005);
 
 -- 查看添加的测试数据
@@ -108,5 +108,5 @@ from stemgame.game;
 select *
 from stemgame.coll;
 select *
-from stemgame.order;
+from stemgame.odr;
 

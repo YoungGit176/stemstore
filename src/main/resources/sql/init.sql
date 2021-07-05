@@ -73,6 +73,8 @@ insert into stemgame.game(game_id, game_name, game_price, game_intro)
 values (2004, 'Counter-Strike', 20, '经典第一人称射击游戏');
 insert into stemgame.game(game_id, game_name, game_price, game_intro)
 values (2005, 'Battlefield 2042', 240, '第一人称射击游戏');
+insert into stemgame.game(game_id, game_name, game_price, game_intro)
+values (2006, 'It Takes Two', 198, '一款双人运动游戏');
 
 -- 插入收藏测试数据
 insert into stemgame.coll(user_id, game_id)

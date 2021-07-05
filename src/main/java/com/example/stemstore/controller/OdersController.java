@@ -2,6 +2,7 @@ package com.example.stemstore.controller;
 
 import com.example.stemstore.bean.Odr;
 import com.example.stemstore.service.OderService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
 public class OdersController {
 
@@ -30,7 +32,7 @@ public class OdersController {
     public Map<String,Integer> submitOrder(Odr odr){
         Map<String,Integer> map=new HashMap<>();
         odr.setOrderDate(new Date());
-        map.put("codeOfSubmitOrder",oderService.submitOrderByUGO(odr));
+        map.put("code",oderService.submitOrderByUGO(odr));
         return map;
     }
 
@@ -38,7 +40,7 @@ public class OdersController {
     @RequestMapping("/removeOrder")
     public Map<String,Integer> removeOrder(@RequestParam(value = "orderID") String orderID){
         Map<String,Integer> map=new HashMap<>();
-        map.put("codeOfRemoveOrder",oderService.removeOrderByorderNum(Long.parseLong(orderID)));
+        map.put("code",oderService.removeOrderByorderNum(Long.parseLong(orderID)));
         return map;
     }
 }

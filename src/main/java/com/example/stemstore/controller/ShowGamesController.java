@@ -3,6 +3,7 @@ package com.example.stemstore.controller;
 import com.example.stemstore.bean.Game;
 import com.example.stemstore.mapper.GameMapper;
 import com.example.stemstore.service.ShowGamesService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class ShowGamesController {
 

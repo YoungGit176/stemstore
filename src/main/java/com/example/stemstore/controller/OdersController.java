@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class OdersController {
@@ -25,14 +27,18 @@ public class OdersController {
 
     /*提交订单*/
     @RequestMapping("/submitOrder")
-    public int submitOrder(Odr odr){
+    public Map<String,Integer> submitOrder(Odr odr){
+        Map<String,Integer> map=new HashMap<>();
         odr.setOrderDate(new Date());
-        return oderService.submitOrderByUGO(odr);
+        map.put("codeOfSubmitOrder",oderService.submitOrderByUGO(odr));
+        return map;
     }
 
     /*移除订单*/
     @RequestMapping("/removeOrder")
-    public int removeOrder(@RequestParam(value = "orderID") String orderID){
-        return oderService.removeOrderByorderNum(Long.parseLong(orderID));
+    public Map<String,Integer> removeOrder(@RequestParam(value = "orderID") String orderID){
+        Map<String,Integer> map=new HashMap<>();
+        map.put("codeOfRemoveOrder",oderService.removeOrderByorderNum(Long.parseLong(orderID)));
+        return map;
     }
 }

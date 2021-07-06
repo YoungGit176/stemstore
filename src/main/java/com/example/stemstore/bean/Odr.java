@@ -3,7 +3,6 @@ package com.example.stemstore.bean;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +21,8 @@ public class Odr {
     private int orderStat;
     private int userId;
     private int gameId;
+    @TableField(exist = false)
+    private String gameName;
     @TableField(exist = false)
 //    @TableLogic
     private int logic;

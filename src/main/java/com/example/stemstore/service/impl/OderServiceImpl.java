@@ -16,13 +16,6 @@ public class OderServiceImpl implements OderService {
 
     @Resource
     OdrMapper odrMapper;
-    @Override
-    public List<Odr> queryOrdersByUserID(Long userId) {
-        QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("user_id",userId);
-        /*返回指定用户的所有订单*/
-        return odrMapper.selectList(queryWrapper);
-    }
 
     @Override
     public int submitOrderByUGO(Odr odr) {

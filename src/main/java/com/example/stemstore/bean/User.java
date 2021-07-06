@@ -18,13 +18,13 @@ public class User {
     @TableField(exist = false)
     private int logic;
 
-    public int getid(){
-        return userId;
-    }
-    public int getpwd(){
-        return user_pwd;
-    }
-    public String getUserName(){
-        return userName;
-    }
+//    public int getid(){
+//        return userId;
+//    }
+//    public int getpwd(){
+//        return user_pwd;
+//    }
+//    public String getUserName(){
+//        return userName;
+//    }
 }

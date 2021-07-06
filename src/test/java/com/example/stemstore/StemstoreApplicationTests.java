@@ -2,18 +2,27 @@ package com.example.stemstore;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.stemstore.bean.Emp;
+import com.example.stemstore.controller.CollectionController;
+import com.example.stemstore.mapper.CollectMapper;
 import com.example.stemstore.mapper.EmpMapper;
+import com.example.stemstore.vo.CollectionVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class StemstoreApplicationTests {
     //依赖注入：数据访问层的组件：API
     @Resource
     private EmpMapper empMapper;
+    @Resource
+    private CollectMapper collectMapper;
+    @Resource
+    private CollectionController controller;
 
     @Resource
     private Emp emp;
@@ -63,6 +72,20 @@ class StemstoreApplicationTests {
     @Test
     public void test(){
         System.out.println("测试");
+    }
+
+    @Test
+    public void testQueryCollect(){
+        QueryWrapper  queryWrapper=new QueryWrapper();
+        queryWrapper.eq("user_id",1001);
+        List<CollectionVO> collectionVOS = collectMapper.queryCollectByUserId(queryWrapper);
+        System.out.println(collectionVOS);
+    }
+    @Test
+    public void testAddCollect(){
+        Map<String, Object> map = controller.addCollect("1001", "2002");
+        System.out.println(map);
+
     }
 
 }

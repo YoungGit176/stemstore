@@ -31,7 +31,6 @@ public class UserServiceImpl implements UserService{
         } else {
             map.put("code",0);
             map.put("message", "数据查询失败！");
-            map.put("username", list.get(0).getUserName());
         }
         return map;
     }

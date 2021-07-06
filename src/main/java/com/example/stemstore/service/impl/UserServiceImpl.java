@@ -25,11 +25,11 @@ public class UserServiceImpl implements UserService{
         CollectionUtils.isNotEmpty(list);
 
         if (list.size()==1) {
-            map.put("code", "0");
+            map.put("code", "1");
             map.put("message", "数据查询成功！");
             map.put("username", list.get(0).getUserName());
         } else {
-            map.put("code",1);
+            map.put("code",0);
             map.put("message", "数据查询失败！");
             map.put("username", list.get(0).getUserName());
         }

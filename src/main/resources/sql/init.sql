@@ -49,8 +49,8 @@ create table stemgame.odr
     FOREIGN KEY (user_id) REFERENCES user (user_id),
     FOREIGN KEY (game_id) REFERENCES game (game_id)
 )engine=InnoDB default charset=UTF8MB4;
-
-
+-- 添加联合唯一约束
+alter table odr add unique key(user_id,game_id);
 -- 插入用户测试数据
 insert into stemgame.user(user_id, user_name, user_pwd)
 values (1001, 'qurui', '123456');

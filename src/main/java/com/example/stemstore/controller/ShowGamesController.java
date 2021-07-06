@@ -3,6 +3,7 @@ package com.example.stemstore.controller;
 import com.example.stemstore.bean.Game;
 import com.example.stemstore.mapper.GameMapper;
 import com.example.stemstore.service.ShowGamesService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,7 @@ public class ShowGamesController {
     ShowGamesService showGamesService;
 
     /*获得所有游戏信息*/
+    @Cacheable(cacheNames = "allGames")
     @RequestMapping("/queryAllGames")
     public List<Game> queryAllGames(){
         return gameMapper.selectList(null);

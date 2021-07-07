@@ -15,4 +15,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     @Insert("insert into user (user_name,user_pwd) values(#{userName},#{user_pwd});")
     int insert(@Param("userName") String userName, @Param("user_pwd") int user_pwd);
+
+    @Select("select * from user where user_id=(select max(user_id) from user)")
+    List<User> selectmaxid();
 }

@@ -10,12 +10,15 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface UserMapper extends BaseMapper<User> {
-    @Select("select * from user where user_id=#{userId} and user_pwd=#{user_pwd}")
-    List<User> select(@Param("userId") int userId, @Param("user_pwd") int user_pwd);
+    @Select("select * from user where user_id=#{userId} and user_pwd=#{user_pwd};")
+    List<User> select(@Param("userId") int userId, @Param("user_pwd") String user_pwd);
+
+    @Select("select * from user where user_name=#{userName};")
+    List<User> selectname(@Param("userName") String userName);
 
     @Insert("insert into user (user_name,user_pwd) values(#{userName},#{user_pwd});")
-    int insert(@Param("userName") String userName, @Param("user_pwd") int user_pwd);
+    int insert(@Param("userName") String userName, @Param("user_pwd") String user_pwd);
 
-    @Select("select * from user where user_id=(select max(user_id) from user)")
+    @Select("select * from user where user_id=(select max(user_id) from user);")
     List<User> selectmaxid();
 }

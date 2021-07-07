@@ -6,9 +6,9 @@ import com.example.stemstore.bean.User;
 import java.util.Map;
 
 public interface UserService {
-    Map<String, Object> getUserInfo(int userId,int user_pwd);
+    Map<String, Object> getUserInfo(int userId,String user_pwd);
 
-    Map<String, Object> getUserstatus(int userId,int user_pwd);
+    Map<String, Object> getUserstatus(int userId,String user_pwd);
 
-    Map<String, Object> registerUser(String userName,int user_pwd);
+    Map<String, Object> registerUser(String userName,String user_pwd);
 }

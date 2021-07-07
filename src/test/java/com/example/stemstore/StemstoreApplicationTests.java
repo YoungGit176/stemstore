@@ -100,21 +100,21 @@ class StemstoreApplicationTests {
 
     @Test
     public void login(){
-        Map<String, Object> map = userController.login(1001, 12345);
+        Map<String, Object> map = userController.login(1001, "123456");
         System.out.println(map);
 
     }
 
     @Test
     public void logout(){
-        Map<String, Object> map = userController.login(1001, 123456);
+        Map<String, Object> map = userController.logout(1001, "123456");
         System.out.println(map);
 
     }
 
     @Test
     public void registerUser(){
-        Map<String, Object> map = userController.registerUser("zx",123456);
+        Map<String, Object> map = userController.registerUser("zxy1","123456");
         System.out.println(map);
 
     }

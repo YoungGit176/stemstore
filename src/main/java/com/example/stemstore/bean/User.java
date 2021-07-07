@@ -19,14 +19,14 @@ public class User implements Serializable {
     @TableId(value = "userId", type = IdType.AUTO)
     private int userId;
     private String userName;
-    private int user_pwd;
+    private String user_pwd;
     @TableField(exist = false)
     private int logic;
 
     public int getid(){
         return userId;
     }
-    public int getpwd(){
+    public String getpwd(){
         return user_pwd;
     }
     public String getUserName(){

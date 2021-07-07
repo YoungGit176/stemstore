@@ -16,11 +16,10 @@ public class UserServiceImpl implements UserService{
     private UserMapper userMapper;
 
     @Override
-   public Map<String, Object> getUserInfo(int userId,int user_pwd)
+   public Map<String, Object> getUserInfo(int userId,String user_pwd)
     {
         Map<String, Object> map = new HashMap<>();
         List<User> list = new ArrayList<>();
-        //获取数据访问层的信息
         list = userMapper.select(userId,user_pwd);
         CollectionUtils.isNotEmpty(list);
 
@@ -36,11 +35,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Map<String, Object> getUserstatus(int userId,int user_pwd)
+    public Map<String, Object> getUserstatus(int userId,String user_pwd)
     {
         Map<String, Object> map = new HashMap<>();
         List<User> list = new ArrayList<>();
-        //获取数据访问层的信息
         list = userMapper.select(userId,user_pwd);
         CollectionUtils.isNotEmpty(list);
 
@@ -55,16 +53,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Map<String, Object> registerUser(String userName,int user_pwd)
+    public Map<String, Object> registerUser(String userName,String user_pwd)
     {
         int succ=0;
         Map<String, Object> map = new HashMap<>();
         List<User> list = new ArrayList<>();
-        //获取数据访问层的信息
-       succ = userMapper.insert(userName,user_pwd);
-        list = userMapper.selectmaxid();
+       list = userMapper.selectname(userName);
         CollectionUtils.isNotEmpty(list);
-        if (succ!=0) {
+        if (list.size()==0) {
+            succ = userMapper.insert(userName,user_pwd);
+            list = userMapper.selectmaxid();
             map.put("code", succ);
             map.put("user_id", list.get(0).getid());
             map.put("message", "注册成功");

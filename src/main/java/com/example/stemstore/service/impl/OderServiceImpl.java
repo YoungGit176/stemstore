@@ -28,8 +28,17 @@ public class OderServiceImpl implements OderService {
             if (odrMapper.selectList(queryWrapper).size()==0){
                 return odrMapper.insert(odr);
             }else{
-                odrMapper.delete(queryWrapper);
-                return odrMapper.insert(odr);
+                queryWrapper.eq("order_stat",odr.getOrderStat());
+                if(odrMapper.selectList(queryWrapper).size() !=0){
+                    return 0;
+                }else {
+                    QueryWrapper queryWrapper1 = new QueryWrapper();
+                    queryWrapper1.eq("user_id",odr.getUserId());
+                    queryWrapper1.eq("game_id",odr.getGameId());
+                    odrMapper.delete(queryWrapper1);
+                    return odrMapper.insert(odr);
+
+                }
             }
         } catch (Exception e) {
             return 0;

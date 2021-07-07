@@ -2,15 +2,22 @@ package com.example.stemstore;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.stemstore.bean.Emp;
+import com.example.stemstore.bean.User;
 import com.example.stemstore.controller.CollectionController;
+import com.example.stemstore.controller.UserController;
 import com.example.stemstore.mapper.CollectMapper;
 import com.example.stemstore.mapper.EmpMapper;
+import com.example.stemstore.mapper.UserMapper;
+import com.example.stemstore.service.UserService;
 import com.example.stemstore.vo.CollectionVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +30,9 @@ class StemstoreApplicationTests {
     private CollectMapper collectMapper;
     @Resource
     private CollectionController controller;
+
+    @Resource
+    private UserController userController;
 
     @Resource
     private Emp emp;
@@ -88,4 +98,10 @@ class StemstoreApplicationTests {
 
     }
 
+    @Test
+    public void login(){
+        Map<String, Object> map = userController.login(1001, 123456);
+        System.out.println(map);
+
+    }
 }

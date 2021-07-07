@@ -29,7 +29,7 @@ public class CollectionController {
         HashMap map = new HashMap();
         List games = collectService.queryCollect(Long.parseLong(userId));
         if (games.size()==0){
-            map.put("code",1);
+            map.put("code",0);
             map.put("message","此用户暂时未添加收藏");
         } else {
             map.put("code",1);

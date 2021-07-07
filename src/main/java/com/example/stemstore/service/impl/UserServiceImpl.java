@@ -57,15 +57,22 @@ public class UserServiceImpl implements UserService{
     @Override
     public Map<String, Object> registerUser(String userName,int user_pwd)
     {
+        int succ=0;
         Map<String, Object> map = new HashMap<>();
         List<User> list = new ArrayList<>();
         //获取数据访问层的信息
-        userMapper.insert(userName,user_pwd);
+       succ = userMapper.insert(userName,user_pwd);
         list = userMapper.selectmaxid();
         CollectionUtils.isNotEmpty(list);
-        map.put("code", 1);
-        map.put("user_id", list.get(0).getid());
-        map.put("message", "注册成功");
+        if (succ!=0) {
+            map.put("code", succ);
+            map.put("user_id", list.get(0).getid());
+            map.put("message", "注册成功");
+        }   else {
+            map.put("code", succ);
+            map.put("message", "注册失败");
+        }
+
         return map;
 
     }

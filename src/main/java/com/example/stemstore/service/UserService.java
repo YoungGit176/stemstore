@@ -7,4 +7,7 @@ import java.util.Map;
 
 public interface UserService {
     Map<String, Object> getUserInfo(int userId,int user_pwd);
+
+    Map<String, Object> getUserstatus(int userId,int user_pwd);
+
 }

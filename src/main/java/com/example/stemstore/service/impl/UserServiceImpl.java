@@ -35,4 +35,23 @@ public class UserServiceImpl implements UserService{
         return map;
     }
 
+    @Override
+    public Map<String, Object> getUserstatus(int userId,int user_pwd)
+    {
+        Map<String, Object> map = new HashMap<>();
+        List<User> list = new ArrayList<>();
+        //获取数据访问层的信息
+        list = userMapper.select(userId,user_pwd);
+        CollectionUtils.isNotEmpty(list);
+
+        if (list.size()==1) {
+            map.put("code", 1);
+            map.put("message", "数据查询成功！");
+        } else {
+            map.put("code",0);
+            map.put("message", "数据查询失败！");
+        }
+        return map;
+    }
+
 }

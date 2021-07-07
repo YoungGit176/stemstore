@@ -26,4 +26,9 @@ public class UserController {
     public Map<String, Object> logout(@Param(value = "userId") int userId, @Param(value = "user_pwd") int user_pwd) {
         return this.userService.getUserstatus(userId,user_pwd);
     }
+
+    @RequestMapping("/register")
+    public Map<String, Object> registerUser(@Param(value = "userName") String userName, @Param(value = "user_pwd") int user_pwd) {
+        return this.userService.registerUser(userName,user_pwd);
+    }
 }

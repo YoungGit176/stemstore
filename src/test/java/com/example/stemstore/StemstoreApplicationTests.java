@@ -111,4 +111,12 @@ class StemstoreApplicationTests {
         System.out.println(map);
 
     }
+
+    @Test
+    public void registerUser(){
+        Map<String, Object> map = userController.registerUser("zx",123456);
+        System.out.println(map);
+
+    }
+
 }

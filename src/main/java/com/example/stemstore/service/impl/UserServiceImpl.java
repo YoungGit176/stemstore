@@ -54,4 +54,18 @@ public class UserServiceImpl implements UserService{
         return map;
     }
 
+    @Override
+    public Map<String, Object> registerUser(String userName,int user_pwd)
+    {
+        Map<String, Object> map = new HashMap<>();
+//        List<User> list = new ArrayList<>();
+//        //获取数据访问层的信息
+        userMapper.insert(userName,user_pwd);
+//        CollectionUtils.isNotEmpty(list);
+        map.put("code", 1);
+        map.put("message", "注册成功");
+        return map;
+
+    }
+
 }

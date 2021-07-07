@@ -10,4 +10,5 @@ public interface UserService {
 
     Map<String, Object> getUserstatus(int userId,int user_pwd);
 
+    Map<String, Object> registerUser(String userName,int user_pwd);
 }
